@@ -8,7 +8,7 @@ describe "ボウリングのスコア計算" do
     describe "全体の合計" do
         context "全ての投球がガターだった場合" do
             it "0になること" do
-                add_many_scores(20, 0)
+                add_many_scores(20,0)
                 # 合計を計算
                 @game.calc_score
                 expect(@game.total.score).to.eq 0
@@ -16,7 +16,7 @@ describe "ボウリングのスコア計算" do
     end
         context "全ての投球で1ピンずつ倒した場合" do
             it "20になること" do
-                add_many_scores(20, 1)
+                add_many_scores(20,1)
                 # 合計を計算
                 @game.calc_score
                 expect(@game.total.score).to.eq 20
@@ -30,7 +30,7 @@ describe "ボウリングのスコア計算" do
                 # 第二フレームの一投目で4点
                 @game.add_score(4)
                 # 以降は全てガター
-                add_many_scores(17, 0)
+                add_many_scores(17,0)
                 # 合計を計算
                 @game.calc_score
                 # 期待する合計 ＊()内はボーナス点
@@ -47,7 +47,7 @@ describe "ボウリングのスコア計算" do
                 @game.add_score(5)
                 @game.add_score(4)
                 # 以降は全てガター
-                add_many_scores(16, 0)
+                add_many_scores(16,0)
                 # 合計を計算
                 @game.calc_score
                 # 期待する合計
@@ -63,7 +63,7 @@ describe "ボウリングのスコア計算" do
                 # 第二フレームの一投目で4点
                 @game.add_score(4)
                 # 15投は全てガター
-                add_many_scores(15, 0)
+                add_many_scores(15,0)
                 # 最終フレームで3点、7点のスペア
                 @game.add_score(3)
                 @game.add_score(7)
@@ -83,33 +83,3 @@ end
             @game.add_score(pins)
         end
     end
-                    
-                
-
-# describe "ボウリングのスコア計算" do
-#     describe "全体の合計" do
-#         context "全ての投球がガターだった場合" do
-#             it "0になること" do
-#                 @game = Bowling.new
-                
-#                 20.times do
-#                     @game.add_score(0)
-#                 end
-                
-#                 expect(@game.total_score).to eq 0
-#             end
-#         end
-        
-#         context "全ての投球で1ピンずつ倒した場合" do
-#             it "20になること" do
-#                 @game = Bowling.new
-                
-#                 20.times do
-#                     @game.add_score(1)
-#                 end
-                
-#                 expect(@game.total_score).to eq 20
-#             end
-#         end
-#     end
-# end
